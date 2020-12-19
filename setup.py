@@ -19,7 +19,10 @@ setuptools.setup(
     packages=setuptools.find_packages(where="factorio_fargate"),
 
     install_requires=[
-        "aws-cdk.core==1.58.0",
+        "aws-cdk.core==1.78.0",
+        "aws-cdk.aws-ec2==1.78.0",
+        "aws-cdk.aws-ecs==1.78.0",
+        "aws-cdk.aws-efs==1.78.0"
     ],
 
     python_requires=">=3.6",

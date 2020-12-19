@@ -6,6 +6,8 @@ from factorio_fargate.factorio_fargate_stack import FactorioFargateStack
 
 
 app = core.App()
-FactorioFargateStack(app, "factorio-fargate")
+FactorioFargateStack(app,
+                    "factorio-fargate",
+                    env=core.Environment(region="eu-west-1"))
 
 app.synth()
