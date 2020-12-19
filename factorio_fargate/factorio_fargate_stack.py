@@ -33,3 +33,12 @@ class FactorioFargateStack(core.Stack):
         self.container.add_mount_points(ecs.MountPoint(container_path="/factorio",
                                                        read_only=False,
                                                        source_volume= volume_name))
+        udp_34197_mapping= ecs.PortMapping(container_port=34197,
+                                            host_port=34197, 
+                                            protocol=ecs.Protocol.UDP)
+
+        tcp_27015_mapping= ecs.PortMapping(container_port=27015,
+                                            host_port=27015,
+                                            protocol=ecs.Protocol.TCP)
+        self.container.add_port_mappings(udp_34197_mapping, tcp_27015_mapping)
+                                         
