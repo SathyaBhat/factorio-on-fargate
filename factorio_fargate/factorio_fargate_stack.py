@@ -1,4 +1,3 @@
-from attr import validate
 from aws_cdk import core
 import aws_cdk.aws_ec2 as ec2
 import aws_cdk.aws_efs as efs
@@ -29,7 +28,7 @@ class FactorioFargateStack(core.Stack):
                                                             ]
                                                         )
         self.container = self.task_definition.add_container("hello-world",
-                                            image=ecs.ContainerImage.from_registry(name="hello-world"))
+                                            image=ecs.ContainerImage.from_registry(name="factoriotools/factorio:stable"))
         self.container.add_mount_points(ecs.MountPoint(container_path="/factorio",
                                                        read_only=False,
                                                        source_volume= volume_name))
