@@ -42,3 +42,11 @@ class FactorioFargateStack(core.Stack):
                                             protocol=ecs.Protocol.TCP)
         self.container.add_port_mappings(udp_34197_mapping, tcp_27015_mapping)
                                          
+        core.CfnOutput(self, "VPC",
+                        value=self.vpc.vpc_id)
+        core.CfnOutput(self, "EFS",
+                        value=self.efs_fs.file_system_id)
+        core.CfnOutput(self, "TaskDef",
+                        value=self.task_definition.task_definition_arn)    
+        core.CfnOutput(self, "Container",
+                        value=self.container.container_name)
